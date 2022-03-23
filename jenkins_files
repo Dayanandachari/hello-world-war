@@ -14,8 +14,8 @@ pipeline {
  stage('deploy') {
             steps {
             
-          sh "scp home/slave1/jenkins/workspace/firstpipelinejob/target/hello-world-war-1.0.0.war /opt/apache-tomcat-9.0.60/webapps/"
-            }
+          sh "scp test2.2 ubutnu@172.31.2.28:/home/ubuntu/"
+            
        }
  }
 }
