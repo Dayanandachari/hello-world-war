@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('checkout') { 
             steps {
-              sh "clean ws"
+              sh "cd /var/lib/jenkins/workspace/"
+              sh "rm -rf *"
               sh "git clone https://github.com/Dayanandachari/hello-world-war"
             }
         }
