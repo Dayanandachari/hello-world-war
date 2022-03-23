@@ -1,10 +1,8 @@
 pipeline {
-    agent any
+    agent { label "java" }
     stages {
         stage('checkout') { 
             steps {
-              sh "cd /var/lib/jenkins/workspace/"
-              sh "rm -rf *"
               sh "git clone https://github.com/Dayanandachari/hello-world-war"
             }
         }
@@ -13,11 +11,4 @@ stage('build') {
               sh "mvn clean package"
             }
         }  
-        stage('deploy') {
-            steps {
-            
-          sh "cp /var/lib/jenkins/workspace/firstpipelinejob/target/hello-world-war-1.0.0.war /opt/apache-tomcat-9.0.60/webapps/"
-            }
-        }
-    }
 }
