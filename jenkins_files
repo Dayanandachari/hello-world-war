@@ -1,5 +1,5 @@
 pipeline {
-    agent { label "anil" }
+    agent any
     stages {
         stage('checkout') { 
             steps {
@@ -11,11 +11,5 @@ pipeline {
               sh "mvn clean package"
             }
         }  
- stage('deploy') {
-            steps {
-            
-          sh "scp test2.2 ubutnu@172.31.2.28:/home/ubuntu/"
-            
-       }
  }
 }
