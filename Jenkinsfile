@@ -17,14 +17,14 @@ pipeline{
       }
        stage('publish'){
                   steps{
-                        sh "docker login -u dayananda1991 -p "{!@#$%Chari2022}""
+                        sh "docker login -u dayananda1991 -p admin@123"
                         sh "docker push dayananda1991/docwarimage:1.0"
                   }
             }
             stage('deploy'){
                   agent { label 'slave1' }
                   steps{
-                        sh "docker login -u dayananda1991 -p !@#$%Chari2022"
+                        sh "docker login -u dayananda1991 -p admin@123"
                         sh "docker pull dayananda1991/docwarimage:1.0"
                         sh "docker rm -f trail1"
                         sh "docker run -d -p 8085:8080 --name trail1 dayananda1991/docwarimage:1.00"
