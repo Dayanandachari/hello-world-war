@@ -1,5 +1,5 @@
 pipeline{
-      agent { label 'docker_slave' }
+      agent { label 'slave1' }
       stages{
       stage('check out'){
                   steps{
@@ -22,7 +22,7 @@ pipeline{
                   }
             }
             stage('deploy'){
-                  agent { label 'docker_slave' }
+                  agent { label 'slave1' }
                   steps{
                         sh "docker login -u dayananda1991 -p !@#$%Chari2022"
                         sh "docker pull dayananda1991/docwarimage:1.0"
