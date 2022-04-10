@@ -12,7 +12,7 @@ pipeline{
       sh "pwd"
       sh "ls"
       sh "cd hello-world-war"
-      sh "docker build -t dayanand1991/docwarimage:1.0 ."
+      sh "docker build -t dayanand1991/docwarimage:1.0"
       }
       }
        stage('publish'){
