@@ -2,13 +2,13 @@ pipeline {
     agent any
     stages {
         
-        stage('checkout') { 
+        stage ('checkout') { 
             steps {
               sh "git clone https://github.com/Dayanandachari/hello-world-war"
                   }
                           }
         
-      stage('build') { 
+      stage ('build') { 
             steps {
               sh "mvn clean package"
                   }
