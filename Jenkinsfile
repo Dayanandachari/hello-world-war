@@ -1,5 +1,8 @@
 pipeline{
       agent { label 'slave1' }
+      environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerpassword')
+    }
       stages{
       stage('check out'){
                   steps{
@@ -17,7 +20,7 @@ pipeline{
       }
        stage('publish'){
                   steps{
-                        sh "docker login -u dayananda1991 -p admin@123"
+                        sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin""
                         sh "docker push dayananda1991/docwarimage:1.0"
                   }
             }
