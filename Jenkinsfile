@@ -17,7 +17,7 @@ pipeline{
       }
        stage('publish'){
                   steps{
-                        sh "docker login -u dayananda1991 -p !@#$%Chari2022"
+                        sh "docker login -u dayananda1991 -p "{!@#$%Chari2022}""
                         sh "docker push dayananda1991/docwarimage:1.0"
                   }
             }
