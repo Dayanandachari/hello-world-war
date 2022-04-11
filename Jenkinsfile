@@ -20,7 +20,7 @@ pipeline{
       }
        stage('publish'){
                   steps{
-                        sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin""
+                        sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
                         sh "docker push dayananda1991/docwarimage:1.0"
                   }
             }
