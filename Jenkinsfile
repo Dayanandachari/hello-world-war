@@ -31,7 +31,7 @@ pipeline{
                   steps{
                         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
                         sh "docker pull dayanand1991/docker_repo_1991:1.0"
-                       //sh "docker rm -f trail1"
+                        sh "docker rm -f trail1"
                         sh "docker run -d -p 8085:8080 --name trail1 dayanand1991/docker_repo_1991:1.0"
                   }
             }
