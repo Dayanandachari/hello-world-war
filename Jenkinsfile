@@ -8,7 +8,7 @@ pipeline{
                   steps{
                   sh "rm -rf hello-world-war"
                   sh "git clone https://github.com/Dayanandachari/hello-world-war.git"
-                  sh " sudo chmod 777 /var/run/docker.sock "   
+                   
                   }
                   }
       stage('build'){
