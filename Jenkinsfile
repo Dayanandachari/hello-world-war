@@ -21,16 +21,18 @@ pipeline{
        stage('publish'){
                   steps{
                         sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
-                        sh "docker push dayananda1991/docker:1.0"
+                        sh " docker tag dayanand1991/docker:1.0 dayanand1991/docker_repo_1991:1.0"
+                        sh "docker push dayanand1991/docker_repo_1991:1.0"
+                        
                   }
             }
             stage('deploy'){
                   agent { label 'slave1' }
                   steps{
                         sh "docker login -u dayananda1991 -p admin@123"
-                        sh "docker pull dayananda1991/docker:1.0"
+                        sh "docker pull dayanand1991/docker_repo_1991:1.0"
                        //sh "docker rm -f trail1"
-                        sh "docker run -d -p 8085:8080 --name trail1 dayananda1991/docker:1.0"
+                        sh "docker run -d -p 8085:8080 --name trail1 dayanand1991/docker_repo_1991:1.0"
                   }
             }
       }
