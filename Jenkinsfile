@@ -14,7 +14,7 @@ pipeline {
         
 stage('Build') {     
            steps {
-                sh "cd /var/lib/jenkins/workspace/testin"
+                sh "cd /var/lib/jenkins/workspace/deployment_to_K8 ."
   
        sh "docker build -t build_cicd:1.0 ."
        }
