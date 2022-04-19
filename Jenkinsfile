@@ -20,13 +20,13 @@ pipeline {
        }
      } //
 
-// stage('Docker hub login and Publish') {
+ stage('Docker hub login and Publish') {
            steps {
        sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
-       sh "docker tag build_cicd:1.0 anilpu3/cicd-build-docker-repo:${BUILD_NUMBER}"
-       sh "docker push anilpu3/cicd-build-docker-repo:${BUILD_NUMBER}"   
+       sh "docker tag build_cicd:1.0 dayanand1991/docker_repo_1991:${BUILD_NUMBER}"
+       sh "docker push dayanand1991/docker_repo_1991:${BUILD_NUMBER}"   
       }
-      } //
+      } 
    
   stage('Deploy') {  
   agent { label 'kuber' }
