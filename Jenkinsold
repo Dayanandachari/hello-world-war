@@ -21,7 +21,8 @@ pipeline{
       }
        stage('publish'){
                   steps{
-                        sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+                        // sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+                        sh "docker login -u dayanand1991 -p admin@123"
                         sh " docker tag dayanand1991/docker:${BUILD_NUMBER} dayanand1991/docker_repo_1991:${BUILD_NUMBER}"
                         sh "docker push dayanand1991/docker_repo_1991:${BUILD_NUMBER}"
                         
