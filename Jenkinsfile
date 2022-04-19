@@ -12,13 +12,13 @@ pipeline {
             }
         }
         
-// stage('Build') {     
+stage('Build') {     
            steps {
                 sh "cd /var/lib/jenkins/workspace/testin"
   
        sh "docker build -t build_cicd:1.0 ."
        }
-     } //
+     } 
 
  stage('Docker hub login and Publish') {
            steps {
@@ -44,6 +44,7 @@ pipeline {
         // sh "docker rm -f port"
         // sh "docker run -d -p 9090:8080 --name port anilpu3/cicd-build-docker-repo:${BUILD_NUMBER}"
              } 
-}    
+}  
+   }
 
 
