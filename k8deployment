@@ -18,7 +18,8 @@ pipeline {
         
         //sh "docker pull anilpu3/cicd-build-docker-repo:${BUILD_NUMBER}"
         //sh " cd /root "
-        // sh " sed -i '25s/tomcat:latest/tomcat:9.0/Ig' /root/deployment.yml "      
+        // sh " sed -i '25s/tomcat:latest/tomcat:9.0/Ig' /root/deployment.yml "     
+        sh " kubectl get node"
         sh " kubectl apply -f /root/deployment.yml"
         sh " kubectl get pod "
         sh " kubectl get deployment "
@@ -28,5 +29,6 @@ pipeline {
         // sh "docker rm -f port"
         // sh "docker run -d -p 9090:8080 --name port anilpu3/cicd-build-docker-repo:${BUILD_NUMBER}"
            } 
+}
 }
 }
