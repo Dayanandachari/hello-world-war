@@ -39,7 +39,7 @@ pipeline {
         sh " kubectl get pod "
         sh " kubectl get deployment "
         sh " kubectl get pod "
-        sh " kubectl apply -f /root/tomcat_nodeportsvc.yml "
+        sh " kubectl apply -f /root/service.yml "
         sh " kubectl get svc "
         // sh "docker rm -f port"
         // sh "docker run -d -p 9090:8080 --name port anilpu3/cicd-build-docker-repo:${BUILD_NUMBER}"
