@@ -30,10 +30,16 @@ pipeline{
             stage('deploy'){
                   agent { label 'kuber' }
                   steps{
-                        sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
-                        sh "docker pull dayanand1991/docker_repo_1991:${BUILD_NUMBER}"
-                        sh "docker rm -f trail1"
-                        sh "docker run -d -p 8085:8080 --name trail1 dayanand1991/docker_repo_1991:${BUILD_NUMBER}"
+                  sh " kubectl apply -f /root/deployment.yml"
+                  sh " kubectl get pod "
+                  sh " kubectl get deployment "
+                  sh " kubectl get pod "
+                  sh " kubectl apply -f /root/service.yml "
+                  sh " kubectl get svc "
+                      //  sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+                      //  sh "docker pull dayanand1991/docker_repo_1991:${BUILD_NUMBER}"
+                       // sh "docker rm -f trail1"
+                       // sh "docker run -d -p 8085:8080 --name trail1 dayanand1991/docker_repo_1991:${BUILD_NUMBER}"
                   }
             }
       }
